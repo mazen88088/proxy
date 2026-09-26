@@ -1,4 +1,5 @@
-FROM alpine:latest
-RUN apk add --no-cache curl
+FROM python:3.9-slim
+WORKDIR /app
+RUN echo "Server is running" > index.html
 EXPOSE 10000
-CMD ["sh", "-c", "echo 'Server is running' && sleep infinity"]
+CMD ["python3", "-m", "http.server", "10000"]
